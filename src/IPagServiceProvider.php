@@ -27,6 +27,8 @@ class IPagServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->publishes([
+            __DIR__.'/config/ipag.php' => config_path('ipag.php')
+        ]);
     }
 }

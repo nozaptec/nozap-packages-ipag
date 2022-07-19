@@ -12,9 +12,9 @@ class IPagBaseClient implements IPagInterface
 
     public function __construct()
     {
-        $this->endpoint = 'sandbox';
-        $this->username = 'joaovsvieira.me@gmail.com';
-        $this->password = '3BE6-FCA05646-CE4A5AC8-613B62C4-E4A0';
+        $this->endpoint = config('ipag.endpoint');
+        $this->username = config('ipag.username');
+        $this->password = config('ipag.password');
     }
 
     /**
