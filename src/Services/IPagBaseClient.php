@@ -6,16 +6,7 @@ use Nozap\IPag\Contracts\IPagInterface;
 
 class IPagBaseClient implements IPagInterface
 {
-    protected string $endpoint;
-    protected string $username;
-    protected string $password;
-
-    public function __construct()
-    {
-        $this->endpoint = config('ipag.endpoint');
-        $this->username = config('ipag.username');
-        $this->password = config('ipag.password');
-    }
+    public function __construct(protected string $endpoint, protected string $username, protected string $password) { }
 
     /**
      * Tokenização de Cartão de Crédito
@@ -23,8 +14,7 @@ class IPagBaseClient implements IPagInterface
      */
     public function token(): TokenService
     {
-        $obj = new TokenService();
-        return $obj;
+        return new TokenService($this->endpoint, $this->username, $this->password);
     }
 
     /**
