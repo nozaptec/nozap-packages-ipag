@@ -23,7 +23,8 @@ class IPagBaseClient implements IPagInterface
      */
     public function token(): TokenService
     {
-        return new TokenService();
+        $obj = new TokenService();
+        return $obj;
     }
 
     /**
