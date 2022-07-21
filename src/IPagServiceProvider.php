@@ -15,6 +15,14 @@ class IPagServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->singleton('ipag', function () {
+            return new IPagBaseClient(
+                config('ipag.endpoint'),
+                config('ipag.username'),
+                config('ipag.password')
+            );
+        });
+
         $this->app->singleton(IPagInterface::class, function () {
             return new IPagBaseClient(
                 config('ipag.endpoint'),

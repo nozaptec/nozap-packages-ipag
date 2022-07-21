@@ -9,7 +9,25 @@ class IPagBaseClient implements IPagInterface
     public function __construct(protected string $endpoint, protected string $username, protected string $password) { }
 
     /**
-     * Tokenização de Cartão de Crédito
+     * Serviço responsável por gerenciar assinaturas.
+     * @return SubscriptionService
+     */
+    public function subscription(): SubscriptionService
+    {
+        return new SubscriptionService($this->endpoint, $this->username, $this->password);
+    }
+
+    /**
+     * Serviço responsável por listar e consultar transações
+     * @return TransactionService
+     */
+    public function transaction(): TransactionService
+    {
+        return new TransactionService($this->endpoint, $this->username, $this->password);
+    }
+
+    /**
+     * Serviço responsável  por tokenização de cartão de crédito
      * @return TokenService
      */
     public function token(): TokenService
