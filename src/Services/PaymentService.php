@@ -15,6 +15,7 @@ class PaymentService extends IPagBaseClient
     public function create(array $params): \GuzzleHttp\Promise\PromiseInterface|\Illuminate\Http\Client\Response
     {
         return Http::withBasicAuth($this->username, $this->password)
+            ->withHeaders(['x-api-version' => 2])
             ->post($this->getEndpoint('/service/payment'), $params);
     }
 
@@ -27,6 +28,7 @@ class PaymentService extends IPagBaseClient
     public function find(string $paymentId): \GuzzleHttp\Promise\PromiseInterface|\Illuminate\Http\Client\Response
     {
         return Http::withBasicAuth($this->username, $this->password)
+            ->withHeaders(['x-api-version' => 2])
             ->get($this->getEndpoint('/service/consult?id=' . $paymentId));
     }
 
@@ -39,6 +41,7 @@ class PaymentService extends IPagBaseClient
     public function capture(string $paymentId): \GuzzleHttp\Promise\PromiseInterface|\Illuminate\Http\Client\Response
     {
         return Http::withBasicAuth($this->username, $this->password)
+            ->withHeaders(['x-api-version' => 2])
             ->post($this->getEndpoint('/service/capture?id=' . $paymentId));
     }
 
@@ -51,6 +54,7 @@ class PaymentService extends IPagBaseClient
     public function cancel(string $paymentId): \GuzzleHttp\Promise\PromiseInterface|\Illuminate\Http\Client\Response
     {
         return Http::withBasicAuth($this->username, $this->password)
+            ->withHeaders(['x-api-version' => 2])
             ->post($this->getEndpoint('/service/cancel?id=' . $paymentId));
     }
 
