@@ -18,7 +18,7 @@ class GenerateResource
                 'holder' => config('ipag.resources.card.holder', 'NOZAP CARD'),
                 'number' => config('ipag.resources.card.number', '4111 1111 1111 1111'),
                 'expiry_month' => config('ipag.resources.card.expiry_month', '01'),
-                'expiry_year'  => config('ipag.resources.card.expiry_year', '25'),
+                'expiry_year'  => config('ipag.resources.card.expiry_year', '2025'),
                 'cvv' => config('ipag.resources.card.cvv', '123')
             ];
 
@@ -26,7 +26,7 @@ class GenerateResource
             'holder' => config('ipag.resources.card.invalid_holder', 'NOZAP INVALID CARD'),
             'number' => config('ipag.resources.card.invalid_number', '4916 5733 8093 7962'),
             'expiry_month' => config('ipag.resources.card.invalid_expiry_month', '12'),
-            'expiry_year'  => config('ipag.resources.card.invalid_expiry_year', '28'),
+            'expiry_year'  => config('ipag.resources.card.invalid_expiry_year', '2028'),
             'cvv' => config('ipag.resources.card.invalid_cvv', '123')
         ];
     }

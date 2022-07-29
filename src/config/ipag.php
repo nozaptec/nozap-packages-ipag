@@ -19,14 +19,14 @@ return [
             'holder' => 'NOZAP CARD',
             'number' => '4111 1111 1111 1111',
             'expiry_month' => '01',
-            'expiry_year'  => '25',
+            'expiry_year'  => '2025',
             'cvv' => '123',
 
             // cartão recusado
             'invalid_holder' => 'NOZAP INVALID CARD',
             'invalid_number' => '4916 5733 8093 7962',
-            'invalid_expiry_month' => '01',
-            'invalid_expiry_year'  => '25',
+            'invalid_expiry_month' => '12',
+            'invalid_expiry_year'  => '2028',
             'invalid_cvv' => '123'
         ],
 
