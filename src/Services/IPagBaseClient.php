@@ -9,6 +9,15 @@ class IPagBaseClient implements IPagInterface
     public function __construct(protected string $endpoint, protected string $username, protected string $password) { }
 
     /**
+     * Serviço responsável por gerenciar pagamentos
+     * @return PaymentService
+     */
+    public function payment(): PaymentService
+    {
+        return new PaymentService($this->endpoint, $this->username, $this->password);
+    }
+
+    /**
      * Serviço responsável por gerenciar clientes
      * @return CustomerService
      */
@@ -36,7 +45,7 @@ class IPagBaseClient implements IPagInterface
     }
 
     /**
-     * Serviço responsável por listar e consultar transações
+     * Serviço responsável por gerenciar transações
      * @return TransactionService
      */
     public function transaction(): TransactionService
@@ -45,12 +54,17 @@ class IPagBaseClient implements IPagInterface
     }
 
     /**
-     * Serviço responsável  por tokenização de cartão de crédito
+     * Serviço responsável por tokenização de cartão de crédito
      * @return TokenService
      */
     public function token(): TokenService
     {
         return new TokenService($this->endpoint, $this->username, $this->password);
+    }
+
+    public static function generate()
+    {
+        //
     }
 
     /**

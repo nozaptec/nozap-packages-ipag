@@ -7,8 +7,18 @@
 - [ ] Finalizar documentação do pacote
 - [ ] Lançar a relaese 1.0
 
+### MODO DE USO
+instalação:
+- composer require nozap/ipag
+- Inserir provider em config/app.php \Nozap\IPag\IPagServiceProvider::class,
+- php artisan vendor:publish --provider="Nozap\IPag\IPagServiceProvider"
+- php artisan optimize
+
+modo de uso:
+- configurar o .env
+
 ### TODO LIST DE INTEGRAÇÃO
-- [ ] Pagamento
+- [x] Pagamento
 - [x] Cliente
 - [x] Plano de assinatura
 - [x] Assinatura
@@ -60,7 +70,7 @@
 - [ ] Checkout
 - [ ] Voucher
 
-TODOLIST DE TESTES
+### TODOLIST DE TESTES
 - [ ] Pagamento
 - [ ] Cliente
 - [ ] Plano de assinatura
