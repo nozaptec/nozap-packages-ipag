@@ -7,25 +7,25 @@ use Illuminate\Support\Facades\Http;
 class TransactionService extends IPagBaseClient
 {
     /**
+     * Consulta uma transação
+     * @param string $transactionId
+     * @return \GuzzleHttp\Promise\PromiseInterface|\Illuminate\Http\Client\Response
+     * @throws \Exception
+     */
+    public function find(string $transactionId): \GuzzleHttp\Promise\PromiseInterface|\Illuminate\Http\Client\Response
+    {
+        return Http::withBasicAuth($this->username, $this->password)
+            ->get($this->getEndpoint('/service/resources/transactions?id=' . $transactionId));
+    }
+
+    /**
      * Lista todas as transações
      * @return \GuzzleHttp\Promise\PromiseInterface|\Illuminate\Http\Client\Response
      * @throws \Exception
      */
-    public function list(): \GuzzleHttp\Promise\PromiseInterface|\Illuminate\Http\Client\Response
+    public function all(): \GuzzleHttp\Promise\PromiseInterface|\Illuminate\Http\Client\Response
     {
         return Http::withBasicAuth($this->username, $this->password)
-            ->post($this->getEndpoint('/service/resources/transactions'));
-    }
-
-    /**
-     * Consulta uma transação
-     * @param $transactionId
-     * @return \GuzzleHttp\Promise\PromiseInterface|\Illuminate\Http\Client\Response
-     * @throws \Exception
-     */
-    public function getTransaction($transactionId): \GuzzleHttp\Promise\PromiseInterface|\Illuminate\Http\Client\Response
-    {
-        return Http::withBasicAuth($this->username, $this->password)
-            ->post($this->getEndpoint('/service/resources/transactions?id=' . $transactionId));
+            ->get($this->getEndpoint('/service/resources/transactions'));
     }
 }
