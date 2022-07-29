@@ -9,7 +9,25 @@ class IPagBaseClient implements IPagInterface
     public function __construct(protected string $endpoint, protected string $username, protected string $password) { }
 
     /**
-     * Serviço responsável por gerenciar assinaturas.
+     * Serviço responsável por gerenciar clientes
+     * @return CustomerService
+     */
+    public function customer(): CustomerService
+    {
+        return new CustomerService($this->endpoint, $this->username, $this->password);
+    }
+
+    /**
+     * Serviço responsável por gerenciar planos de assinatura
+     * @return PlanService
+     */
+    public function plan(): PlanService
+    {
+        return new PlanService($this->endpoint, $this->username, $this->password);
+    }
+
+    /**
+     * Serviço responsável por gerenciar assinaturas
      * @return SubscriptionService
      */
     public function subscription(): SubscriptionService

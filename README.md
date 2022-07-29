@@ -9,9 +9,9 @@
 
 ### TODO LIST DE INTEGRAÇÃO
 - [ ] Pagamento
-- [ ] Cliente
-- [ ] Plano de assinatura
-- [ ] Assinatura
+- [x] Cliente
+- [x] Plano de assinatura
+- [x] Assinatura
 - [x] Transação
 - [x] Tokenizar
 - [ ] Cobrança
