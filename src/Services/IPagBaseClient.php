@@ -3,6 +3,7 @@
 namespace Nozap\IPag\Services;
 
 use Nozap\IPag\Contracts\IPagInterface;
+use Nozap\IPag\Resources\GenerateResource;
 
 class IPagBaseClient implements IPagInterface
 {
@@ -62,9 +63,13 @@ class IPagBaseClient implements IPagInterface
         return new TokenService($this->endpoint, $this->username, $this->password);
     }
 
-    public static function generate()
+    /**
+     * Recurso responsável por gerar cartões de teste
+     * @return GenerateResource
+     */
+    public static function generate(): GenerateResource
     {
-        //
+        return new GenerateResource();
     }
 
     /**
